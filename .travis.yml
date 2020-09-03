@@ -1,0 +1,24 @@
+language: python
+matrix:
+  include:
+    - os: linux
+      # We need an older version of python in order to have compatibility with
+      # older versions of libc
+      dist: xenial
+      python: 3.6
+    - os: osx
+      language: generic
+
+script:
+  - make ci-info
+  - make ci-install-plugins
+  - make test
+  - make ci-bundle
+
+deploy:
+  # Create github release and push binary to github
+  - provider: script
+    script: make ci-github
+    skip_cleanup: true
+    on:
+      tags: true
