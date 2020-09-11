@@ -6,6 +6,7 @@ from . import exceptions
 from . import fmt
 from .__about__ import __version__
 
+
 def update(root, interactive=True):
     """
     Load and save the configuration.
