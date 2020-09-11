@@ -38,6 +38,7 @@ class LocalContext(Context):
 def local(context):
     context.obj = LocalContext(context.obj.root)
 
+    
 @click.command(help="Configure and run Open edX from scratch")
 @click.option("-I", "--non-interactive", is_flag=True, help="Run non-interactively")
 @click.option(
@@ -51,6 +52,7 @@ def quickstart(context, non_interactive, pullimages_):
             from_version=tutor_env.current_release(context.root),
             non_interactive=non_interactive,
         )
+        
     click.echo(fmt.title("Interactive platform configuration"))
     config = interactive_config.update(context.root, interactive=(not non_interactive))
     click.echo(fmt.title("Updating the current environment"))
