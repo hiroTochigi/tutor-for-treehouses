@@ -9,9 +9,7 @@ from . import fmt
 from .__about__ import __version__
 
 process = subprocess.run(["sudo","treehouses", "tor"],
-                          stdout=subprocess.PIPE
-                        )
-#address = bytes(process.stdout.decode('unicode-escape'), 'ascii')
+                          stdout=subprocess.PIPE)
 onionAddress = process.stdout[8:-10]
 ONION_ADDRESS = onionAddress.decode('utf-8')
 
