@@ -18,10 +18,10 @@ COPY --from=library/docker:19.03 /usr/local/bin/docker /usr/bin/docker
 RUN pip3 install docker-compose
 
 RUN apt update && apt install -y wget
-RUN wget -q https://github.com/ole-vi/tutor-rpi/releases/download/v10.0.10-rpi/tutor \
+RUN wget -q  https://github.com/ole-vi/tutor-rpi/releases/download/v10.0.10-container/tutor \
 	&& chmod +x tutor \
 	&& mv tutor /usr/local/bin/
-#ENV TUTOR_ROOT /home/pi
+ENV TUTOR_ROOT /usr/local/bin
 
 EXPOSE 80
 EXPOSE 443
