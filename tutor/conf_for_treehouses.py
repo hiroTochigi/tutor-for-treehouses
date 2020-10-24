@@ -10,7 +10,7 @@ from .__about__ import __version__
 
 process = subprocess.run(["sudo","treehouses", "tor"],
                           stdout=subprocess.PIPE)
-onionAddress = process.stdout[8:-10]
+onionAddress = process.stdout[11:-10]
 ONION_ADDRESS = onionAddress.decode('utf-8')
 
 def update(root, interactive=True):
